@@ -1,4 +1,4 @@
-*/.idea/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -101,3 +101,5 @@ ENV/
 
 # mypy
 .mypy_cache/
+.idea/
+out_graph.png
