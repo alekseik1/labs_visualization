@@ -17,6 +17,8 @@ frame = pd.read_csv(input_file)
 x = frame[[x_data]]
 y = frame[[y_data]]
 
+# TODO: Для больших значений следует выносить порядок
+
 y_max = np.max(y)[0]
 y_min = np.min(y)[0]
 x_max = np.max(x)[0]
@@ -29,12 +31,11 @@ def por(x):
     return int(np.floor(np.log10(np.abs(x))))
 
 # TODO: Князев любит, когда major ticks начинабтся с целого числа и заканчиваются на максимальном значении (целое, то есть надо округлять).
-# TODO: Переделать это. Пока в notebook поставлю ручную заглушку
 def best_tick_interval(x_max, x_min):
-    delta_p = 10**por(x_max - x_min)
+    delta_p = 10**por((x_max - x_min)/7)    # Исходим из того, что надо 7 major ticks+
     v = [1, 2, 4, 5, 8,]
     for k in v:
-        if(2 < np.floor((x_max*1.1 - x_min)/(k*delta_p))+1 < 10):
+        if 2 < np.floor((x_max*1.1 - x_min)/(k*delta_p))+1 < 10:
             return k*delta_p
 
 '''
