@@ -4,10 +4,10 @@ from matplotlib.ticker import MultipleLocator
 from scipy.interpolate import interp1d
 import pandas as pd
 
-input_file = './sample_input.txt'
+input_file = './sample2.csv'
 
-x_data = 'I'
-y_data = 'V'
+x_data = 's'
+y_data = 't'
 
 start_x_with_zero = False
 start_y_with_zero = False
@@ -86,5 +86,5 @@ ax.plot(x, y, '-', color='k')
 ax.grid(which='major', ls='-', lw=0.5, c='k', alpha=0.9)
 ax.grid(which='minor', ls='--', lw=0.5, c='grey', alpha=0.9)
 
-plt.savefig("out_graph.png")
+plt.savefig("out_graph1.pdf")
 plt.show()
